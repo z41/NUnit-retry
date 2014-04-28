@@ -35,9 +35,10 @@ namespace NUnit_retry
 
                 var attrs = member.GetCustomAttributes(typeof(RetryAttribute), true);
                 var explicitAttrs = member.GetCustomAttributes(typeof(ExplicitAttribute), true).ToArray();
-                var ignoreAttrs = member.GetCustomAttributes(typeof (IgnoreAttribute), true).ToArray();
+                var ignoreAttrs = member.GetCustomAttributes(typeof(IgnoreAttribute), true).ToArray();
                 var properties = test.Properties;
-                
+
+
                 if (testMethod.FixtureType != null)
                 {
                     var fixtureAttrs =
@@ -53,6 +54,7 @@ namespace NUnit_retry
                                 testMethod.Method,
                                 retryAttr.Times,
                                 retryAttr.RequiredPassCount);
+
                             test.Properties = properties;
                         }
                     }
@@ -66,6 +68,7 @@ namespace NUnit_retry
                     {
                         return test;
                     }
+
                     test = new RetriedTestMethod(testMethod.Method, retryAttr.Times, retryAttr.RequiredPassCount);
                     test.Properties = properties;
                 }
