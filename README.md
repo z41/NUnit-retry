@@ -58,8 +58,8 @@ There testrunner-proxy as part of solution. Avoid its using, because it removes 
 What I've added
 ------------
 
-Original NUnit-retry plugin doesn't support Explicit, Ignore and Category attributes - fixed. 
-Also there small hack for teamCity: if there were no repeated failures during build - service message will be sent to teamCity to force build status 'SUCCESS'.
+Original NUnit-retry plugin doesn't support Explicit, Ignore and Category attributes - FIXED. 
+In case of retired failure message will be sent by addin: "##nunit-retry: there are repeated failures". This message can be handled by TeamCity to set build status to 'FAILED' only if there repeated failures.
 
 NUnit-retry
 ===========
@@ -108,4 +108,5 @@ NUnit имеет проблемы при использовании расшир
 Что было добавлено мной
 -------------
 
-Исходная версия NUnit-retry не поддерживает атрибуты Explicit, Ignore и Category - это было исправлено. Кроме того, если в течение тестового прогона не было повторно упавших тестов (т.е. все тесты "поднялись") - будет отправлено сервисное сообщение для TeamCity для того, чтобы выставить статус билда в Success. Т.е. упавшие тесты вы увидите, но билд будет "зеленым".
+Исходная версия NUnit-retry не поддерживает атрибуты Explicit, Ignore и Category - это было исправлено. 
+Кроме того, в случае повторного падение тест-кейса аддон пошлет сообщение "##nunit-retry: there are repeated failures", которое может быть обработано TeamCity.
