@@ -62,7 +62,7 @@ Original NUnit-retry plugin doesn't support Explicit, Ignore and Category attrib
 In case of retired failure, message will be sent by addin: "##nunit-retry: there are repeated failures". This message can be handled by TeamCity to set build status to 'FAILED' only if there repeated failures.
 To use this feature you should disable "at least one test failed" failure condition and add custom one (this is made for build-step, where test-runner is started):
 
-![teamCity configuration](z41.github.com/NUnit-retry/teamcity config.png)
+![teamCity configuration](teamcity config.png)
 
 NUnit-retry
 ===========
@@ -114,4 +114,4 @@ NUnit имеет проблемы при использовании расшир
 Исходная версия NUnit-retry не поддерживает атрибуты Explicit, Ignore и Category - это было исправлено. 
 Кроме того, в случае повторного падения тест-кейса аддон пошлет сообщение "##nunit-retry: there are repeated failures", которое может быть обработано TeamCity. Чтобы TeacmCity в этом случае правильно работал, надо его настроить, убрав Failure condition при падении любого теста и добавить свой Failure condition для соответствующего билд-степа (в котором запускаются тесты):
 
-![teamCity configuration](z41.github.com/NUnit-retry/teamcity config.png)
+![teamCity configuration](teamcity config.png)
